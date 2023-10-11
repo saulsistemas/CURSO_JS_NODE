@@ -69,3 +69,38 @@ console.log("variable const "+constVariable);
 //constVariable = 20;
 //console.log("variable const "+constVariable);
 
+
+console.log("==================== 2 - OPERADORES ==================== ");
+console.log("==================== 2.1 - ARITMETICOS ==================== ");
+let valor1 = 15
+let valor2 = 10
+console.log("-------------SUMA------------- ");
+var sumaVariables = valor1 + valor2
+console.log("la suma de "+ valor1 +" Y "+valor2+" = "+ sumaVariables);
+console.log("-------------RESTA------------- ");
+var restaVariables = valor1 - valor2
+console.log("la resta de "+ valor1 +" Y "+valor2+" = "+ restaVariables);
+console.log("-------------MULTIPLICACIÓN------------- ");
+var multiplicacionVariables = valor1 * valor2
+console.log("la multiplicación de "+ valor1 +" Y "+valor2+" = "+ multiplicacionVariables);
+console.log("-------------DIVISIÓN------------- ");
+var divisionVariables = valor1 / valor2
+console.log("la división de "+ valor1 +" Y "+valor2+" = "+ divisionVariables);
+console.log("-------------RESIDUO------------- ");
+var residuoVariables = valor1 % valor2
+console.log("El residuo de "+ valor1 +" Y "+valor2+" = "+ residuoVariables);
+console.log("-------------EXPONENTE------------- ");
+var exponenteVariables = valor1 ** valor2
+console.log("El exponente de "+ valor1 +" elevado "+valor2+" = "+ exponenteVariables);
+console.log("-------------PRE INCREMENTO------------- ");
+var preIncrementoVariables = ++valor1 
+console.log("Se incremento de 15 a "+valor1+" y se almacenó "+ preIncrementoVariables);
+console.log("-------------POS INCREMENTO------------- ");
+var posIncrementoVariables = valor2++ 
+console.log("Se incremento de 10 a "+valor2+" y se almacenó "+ posIncrementoVariables);
+console.log("-------------PRE DECREMENTO------------- ");
+var preDecrementoVariables = --valor1 
+console.log("Se incremento de 16 a "+valor1+" y se almacenó "+ preDecrementoVariables);
+console.log("-------------POS DECREMENTO------------- ");
+var posDecrementoVariables = valor2-- 
+console.log("Se incremento de 10 a "+valor2+" y se almacenó "+ posDecrementoVariables);
