@@ -179,3 +179,17 @@ if (variableIF>10) {
 }else{
     console.log("es menor a 10");
 }
+
+console.log("==================== 3.2 - SWITCH ==================== ");
+var variableSwitch =3 ;
+switch (variableSwitch) {
+    case 1:
+        console.log("el número es 1");
+        break;
+    case 2:
+        console.log("el número es 2");
+        break;
+    default:
+        console.log("es un número diferente");
+        break;
+}
