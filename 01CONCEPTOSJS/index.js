@@ -215,3 +215,18 @@ for (let index = 0; index < 3; index++) {
     console.log(index);
 }
 
+console.log("==================== 4.4 - BREAK ==================== ");
+for (let index = 0; index < 5; index++) {
+    if (index == 2) {
+        console.log("se rompió bucle en el número : " + index);
+        break
+    }
+}
+console.log("==================== 4.4 - CONTINUE ==================== ");
+for (let index = 0; index < 5; index++) {
+    if (index == 2) {
+        console.log("El contador vale , continuemos : " + index);
+        continue
+    }
+    console.log("se rompió bucle en el número : " + index);
+}
