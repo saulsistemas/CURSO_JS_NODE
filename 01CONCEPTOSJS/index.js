@@ -115,10 +115,35 @@ console.log("la variable adición "+adiciónVariables);
 console.log("-------------RESTA------------- ");
 var restaVariables = 6
 restaVariables-=3 // restaVariables = restaVariables - 3
-console.log("la variable adición "+restaVariables);
+console.log("la variable resta "+restaVariables);
 /*
 *= 
 /=
 %=
 **=
 */
+
+console.log("==================== 2.3 - COMPARACION ==================== ");
+var variableComparacion1 = 2, variableComparacion2 = '2',  variableComparacion3 =3
+console.log("-------------==------------- ");
+var resultadoIgual = variableComparacion1 == variableComparacion2 // revisa el valor sin importar el tipo de dato
+console.log("la variable "+variableComparacion1+" == "+variableComparacion2+" = "+resultadoIgual);
+console.log("-------------===------------- ");
+var resultadoEstrictamenteIgual = variableComparacion1 === variableComparacion2 // revisa el valor y el tipo de dato
+console.log("la variable "+variableComparacion1+" === "+variableComparacion2+" = "+resultadoEstrictamenteIgual);
+console.log("-------------!=------------- ");
+var resultadoDiferente = variableComparacion1 != variableComparacion2 // revisa el valor sin importar el tipo de dato
+console.log("la variable "+variableComparacion1+" != "+variableComparacion2+" = "+resultadoDiferente);
+console.log("-------------!==------------- ");
+var resultadoEstrictamenteDiferente = variableComparacion1 !== variableComparacion2 // revisa el valor y el tipo de dato
+console.log("la variable "+variableComparacion1+" !== "+variableComparacion2+" = "+resultadoEstrictamenteDiferente);
+console.log("-------------<= < ------------- ");
+var resultadoMenorIgual = variableComparacion1 <= variableComparacion3 
+var resultadoMenor = variableComparacion1 < variableComparacion3 
+console.log("la variable "+variableComparacion1+" <= "+variableComparacion3+" = "+resultadoMenorIgual);
+console.log("la variable "+variableComparacion1+" < "+variableComparacion3+" = "+resultadoMenor);
+console.log("------------->= > ------------- ");
+var resultadoMayorIgual = variableComparacion1 >= variableComparacion3 
+var resultadoMayor = variableComparacion1 > variableComparacion3 
+console.log("la variable "+variableComparacion1+" >= "+variableComparacion3+" = "+resultadoMayorIgual);
+console.log("la variable "+variableComparacion1+" > "+variableComparacion3+" = "+resultadoMayor);
