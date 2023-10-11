@@ -104,3 +104,21 @@ console.log("Se incremento de 16 a "+valor1+" y se almacenó "+ preDecrementoVar
 console.log("-------------POS DECREMENTO------------- ");
 var posDecrementoVariables = valor2-- 
 console.log("Se incremento de 10 a "+valor2+" y se almacenó "+ posDecrementoVariables);
+
+console.log("==================== 2.2 - ASIGNACIÓN ==================== ");
+var asignacionVariables = 15
+console.log("la variable asignada "+asignacionVariables);
+console.log("-------------ADICIÓN------------- ");
+var adiciónVariables = 1
+adiciónVariables+=3 // adiciónVariables = adiciónVariables + 3
+console.log("la variable adición "+adiciónVariables);
+console.log("-------------RESTA------------- ");
+var restaVariables = 6
+restaVariables-=3 // restaVariables = restaVariables - 3
+console.log("la variable adición "+restaVariables);
+/*
+*= 
+/=
+%=
+**=
+*/
