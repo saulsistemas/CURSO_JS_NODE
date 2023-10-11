@@ -148,7 +148,7 @@ var resultadoMayor = variableComparacion1 > variableComparacion3
 console.log("la variable "+variableComparacion1+" >= "+variableComparacion3+" = "+resultadoMayorIgual);
 console.log("la variable "+variableComparacion1+" > "+variableComparacion3+" = "+resultadoMayor);
 
-console.log("==================== 2.3 - LOGICOS ==================== ");
+console.log("==================== 2.4 - LOGICOS ==================== ");
 var variableLogica1 = 10, variableLogica2 =15
 console.log("------------- && (AND)------------- ");
 var resultadorAnd = variableLogica1 == 10 && variableLogica2 == 15
@@ -159,3 +159,8 @@ console.log("La variable es "+resultadorOr);
 console.log("------------- ! (NOT)------------- ");
 var resultadorOr = !(variableLogica1 == 10 || variableLogica2 == 6)
 console.log("La variable es "+resultadorOr);
+
+console.log("==================== 2.5 - TERNARIO ==================== ");
+console.log("------------- condition ? val1 : val2------------- ");
+var varibaleTernario = 7 % 2 ==0 ? 'Es PAR ': 'Es IMPAR'
+console.log("El valor "+varibaleTernario);
