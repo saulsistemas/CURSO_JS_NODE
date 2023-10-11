@@ -186,10 +186,26 @@ switch (variableSwitch) {
     case 1:
         console.log("el número es 1");
         break;
-    case 2:
-        console.log("el número es 2");
+    case 2: case 3:
+        console.log("el número es 2 o 3");
         break;
     default:
         console.log("es un número diferente");
         break;
 }
+
+console.log("==================== 4 - BUCLES ==================== ");
+console.log("==================== 4.1 - WHILE ==================== ");
+let contador = 0
+
+while (contador<3) {
+    console.log(contador);
+    contador+=1
+}
+console.log("==================== 4.1 - DOWHILE ==================== ");
+let contadorDo = 0
+
+do{
+    console.log(contadorDo);
+    contadorDo++
+}while(contadorDo< 3)
