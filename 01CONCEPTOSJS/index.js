@@ -295,3 +295,46 @@ const miFuncionArguments = function(a = 10,b =11){
 }
 var variableFuncionArguments = miFuncionArguments(5,4,7)
 console.log("La funcion flecha retorna "+ variableFuncionArguments);
+
+console.log("==================== OBJETOS ==================== ");
+let variableObjeto ={
+    nombre:'Juan',
+    apellido: 'Ronaldo',
+    edad:'29',
+    datosCompletos: function(){
+        return this.nombre + ' ' +this.apellido;
+    }
+}
+console.log("Mis datos princiaples son : "+variableObjeto.datosCompletos() +" "+variableObjeto.edad);
+console.log("-------------CLASE OBJECT------------- ");
+let variableObjeto2 = new Object()
+variableObjeto2.nombre = 'Carlos';
+variableObjeto2.apellido = 'Rojas';
+variableObjeto2.edad = '15';
+console.log("Mis datos princiaples son : "+variableObjeto2.nombre +" "+variableObjeto2.apellido+" "+variableObjeto2['edad']);
+console.log("-------------RECORRIENDO OBJETO------------- ");
+for (const nombrePropiedad in variableObjeto) {
+    console.log(nombrePropiedad +" => " + variableObjeto[nombrePropiedad]);
+}
+console.log("-------------AGREGANDO PROPIEDADES OBJETO------------- ");
+variableObjeto.telefono = 123456;
+for (const nombrePropiedad in variableObjeto) {
+    console.log(nombrePropiedad +" => " + variableObjeto[nombrePropiedad]);
+}
+console.log("-------------ELIMINAR PROPIEDADES OBJETO------------- ");
+delete variableObjeto.datosCompletos;
+for (const nombrePropiedad in variableObjeto) {
+    console.log(nombrePropiedad +" => " + variableObjeto[nombrePropiedad]);
+}
+console.log("-------------SEGUNDA MANERA DE RECORRER OBJETO------------- ");
+// RETORNA UN ARRAY
+let variableObjeto3 = Object.values(variableObjeto)
+console.log(variableObjeto3);
+// CONVIERTE NUESTRO OBJETO UNA CADENA
+let variableObjeto4 = JSON.stringify(variableObjeto)
+console.log(variableObjeto4);
+// CONVIERTE CADENA DE OBJETO EN OBJETO
+let variableObjeto5 = JSON.parse(variableObjeto4)
+console.log(variableObjeto5);
+// LOS OBJETOS PUEDEN TENET METODOS GET SET, PROTOTYPE, CALL, APPLY
+
