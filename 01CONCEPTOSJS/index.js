@@ -164,3 +164,18 @@ console.log("==================== 2.5 - TERNARIO ==================== ");
 console.log("------------- condition ? val1 : val2------------- ");
 var varibaleTernario = 7 % 2 ==0 ? 'Es PAR ': 'Es IMPAR'
 console.log("El valor "+varibaleTernario);
+
+console.log("==================== 3 - SENTENCIAS ==================== ");
+console.log("==================== 3.1 - IF ==================== ");
+var variableIF =1 ;
+
+if (variableIF>10) {
+    console.log("es mayor a 10");
+    if(variableIF){
+        console.log("ingresaste al primer if");
+    }
+} else if(variableIF==10){
+    console.log("es igual 10");
+}else{
+    console.log("es menor a 10");
+}
