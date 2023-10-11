@@ -230,3 +230,28 @@ for (let index = 0; index < 5; index++) {
     }
     console.log("se rompió bucle en el número : " + index);
 }
+
+console.log("==================== RECORRER AREGLOS ==================== ");
+let variableArregloCursos= ["JS","PHP","JAVA","PYTHON"]
+for (let index = 0; index < variableArregloCursos.length; index++) {
+    const element = variableArregloCursos[index];
+    console.log(index+"-> "+element);
+}
+console.log("==================== MODIFICAR AREGLOS ==================== ");
+variableArregloCursos[1]='GO'
+for (let index = 0; index < variableArregloCursos.length; index++) {
+    const element = variableArregloCursos[index];
+    console.log(index+"-> "+element);
+}
+console.log("==================== AGREGAR AREGLOS ==================== ");
+variableArregloCursos.push('PHP')
+for (let index = 0; index < variableArregloCursos.length; index++) {
+    const element = variableArregloCursos[index];
+    console.log(index+"-> "+element);
+}
+variableArregloCursos[6]='C#'
+for (let index = 0; index < variableArregloCursos.length; index++) {
+    const element = variableArregloCursos[index];
+    console.log(index+"-> "+element);
+}
+console.log(Array.isArray(variableArregloCursos))
