@@ -202,10 +202,16 @@ while (contador<3) {
     console.log(contador);
     contador+=1
 }
-console.log("==================== 4.1 - DOWHILE ==================== ");
+console.log("==================== 4.2 - DOWHILE ==================== ");
 let contadorDo = 0
 
 do{
     console.log(contadorDo);
     contadorDo++
 }while(contadorDo< 3)
+
+console.log("==================== 4.3 - FOR ==================== ");
+for (let index = 0; index < 3; index++) {
+    console.log(index);
+}
+
