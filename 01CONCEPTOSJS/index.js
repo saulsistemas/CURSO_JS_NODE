@@ -255,3 +255,43 @@ for (let index = 0; index < variableArregloCursos.length; index++) {
     console.log(index+"-> "+element);
 }
 console.log(Array.isArray(variableArregloCursos))
+
+console.log("==================== FUNCIONES ==================== ");
+//es un bloque de código o un conjunto de instrucciones que realiza una tarea específica
+//parámetro, se usa a menudo para referirse a la variable en la declaración del método, mientras que argumento,  se refiere al valor que se envía
+console.log("-------------CON ARGUMENTOS------------- ");
+function miFuncion(parametro1, parametro2) {
+    console.log("La suma es : "+(parametro1+parametro2));
+}
+miFuncion(2,1)
+console.log("-------------CON RETORNO------------- ");
+function miFuncionRetorno(parametro1, parametro2) {
+    return parametro1+parametro2
+}
+console.log("La suma con return " + miFuncionRetorno(2,1));
+console.log("-------------ANONIMA------------- ");
+(function (a,b) {
+    console.log("Esta es una funcion anonima, solo se llama una vez " + (a+b));
+})(3,4);
+
+console.log("-------------EN UNA VARIABLE------------- ");
+var miFuncionVariable = function(a, b){return a+b}
+var variableFuncion =miFuncionVariable(3,2)
+console.log("La suma guardando funcion en variable "+ variableFuncion);
+
+console.log("-------------FLECHA------------- ");
+//no hay necesidad de colorcar return
+const miFuncionFlecha = (a,b) => a+b;
+var variableFuncionFlecha = miFuncionFlecha(5,4)
+console.log("La funcion flecha retorna "+ variableFuncionFlecha);
+
+console.log("-------------ARGUMENTS------------- ");
+//la propiedad arguments es un arreglo que tienen las fucniones
+const miFuncionArguments = function(a = 10,b =11){
+    console.log(arguments[0]);
+    console.log(arguments[1]);
+    console.log(arguments[2]);
+    return a+b+arguments[2];
+}
+var variableFuncionArguments = miFuncionArguments(5,4,7)
+console.log("La funcion flecha retorna "+ variableFuncionArguments);
