@@ -147,3 +147,15 @@ var resultadoMayorIgual = variableComparacion1 >= variableComparacion3
 var resultadoMayor = variableComparacion1 > variableComparacion3 
 console.log("la variable "+variableComparacion1+" >= "+variableComparacion3+" = "+resultadoMayorIgual);
 console.log("la variable "+variableComparacion1+" > "+variableComparacion3+" = "+resultadoMayor);
+
+console.log("==================== 2.3 - LOGICOS ==================== ");
+var variableLogica1 = 10, variableLogica2 =15
+console.log("------------- && (AND)------------- ");
+var resultadorAnd = variableLogica1 == 10 && variableLogica2 == 15
+console.log("La variable es "+resultadorAnd);
+console.log("------------- || (OR)------------- ");
+var resultadorOr = variableLogica1 == 10 || variableLogica2 == 6
+console.log("La variable es "+resultadorOr);
+console.log("------------- ! (NOT)------------- ");
+var resultadorOr = !(variableLogica1 == 10 || variableLogica2 == 6)
+console.log("La variable es "+resultadorOr);
