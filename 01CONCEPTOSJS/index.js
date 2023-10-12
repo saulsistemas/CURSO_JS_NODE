@@ -667,3 +667,25 @@ async function miFuncionConPromesa(){
 miFuncionConPromesa().then(function(valor){
     console.log(valor);
 })
+
+console.log("==================== 11 AWAIT ==================== ");
+//espera el resultado de una promesa
+//await solo se puede declarar dentro de una funcion declara con async
+async function miFuncionConPromesaYAwait(){
+    let promesa1 = new Promise(function(resuelto){
+        resuelto('Promesa con Await ')
+    })
+    console.log(await promesa1);
+}
+
+miFuncionConPromesaYAwait();
+
+async function miFuncionConPromesaYAwaitTimeout(){
+    let promesa1 = new Promise(function(resuelto){
+        setTimeout(function(){
+            resuelto('Promesa con Await a los 9 segundos')
+        },9000)
+    })
+    console.log(await promesa1);
+}
+miFuncionConPromesaYAwaitTimeout()
