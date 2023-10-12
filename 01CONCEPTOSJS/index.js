@@ -689,3 +689,47 @@ async function miFuncionConPromesaYAwaitTimeout(){
     console.log(await promesa1);
 }
 miFuncionConPromesaYAwaitTimeout()
+
+console.log("==================== 12 DESTRUCTURACION ==================== ");
+console.log("-------------1DE UN OBJETO ------------- ");
+const pokemon ={
+    nombre:"Pikachu",
+    tipo:"Electrico",
+    poder:"impactrueno",
+    getNombre:function(){
+        return this.nombre + " "+this.tipo + " "+this.poder
+    }
+}
+//console.log(pokemon.getNombre());
+const{nombre,tipo,poder,edad=15}=pokemon
+console.log("Destructuracion "+nombre,tipo,poder,edad);
+
+console.log("-------------con funciones------------- ");
+
+function imprimePokemon(pokemon) {
+    const{nombre,tipo,poder,edad=15}=pokemon
+    console.log("Destructuracion 2 "+nombre,tipo,poder,edad);
+}
+imprimePokemon(pokemon)
+
+console.log("-------------con funciones 2------------- ");
+
+function imprimePokemon2({nombre,tipo,poder,edad=15}) {
+    console.log("Destructuracion 3 "+nombre,tipo,poder,edad);
+}
+imprimePokemon2(pokemon)
+
+console.log("-------------2 DE UN ARRAY ------------- ");
+
+const pokemones= ['pikachu','charmander','caterpie']
+const[h1,h2,h3] = pokemones
+//const[,,h3] = pokemones //si queremos el ultimo elemento de array
+console.log("Destructuracion array "+h1,h2,h3);
+
+console.log("-------------con funciones------------- ");
+
+function imprimePokemonArray(pokemon) {
+    const[h1,h2,h3] = pokemon
+    console.log("Destructuracion array "+h1,h2,h3);
+}
+imprimePokemonArray(pokemones)
