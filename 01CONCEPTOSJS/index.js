@@ -295,6 +295,79 @@ const miFuncionArguments = function(a = 10,b =11){
 }
 var variableFuncionArguments = miFuncionArguments(5,4,7)
 console.log("La funcion flecha retorna "+ variableFuncionArguments);
+console.log("-------------ARGUMENTS2 REST------------- ");
+//la propiedad arguments es un arreglo que tienen las fucniones
+//For IN muestra los indices del array
+//FOR OF muestra los elementos del array
+function restFuncion(...args) {
+    
+    for (const indice in args) {
+        console.log(indice);
+    }
+    for (const indice in args) {
+        console.log(args[indice]);
+    }
+    for (const elemento of args) {
+        console.log(elemento);
+    }
+}
+restFuncion("Miguel",2,3,4);
+console.log("-------------ARGUMENTS2 SPREAD------------- ");
+varibleSpread =["Carlos","Juan"]
+function spreadFuncion(...args) {
+    
+    for (const indice in args) {
+        console.log(indice);
+    }
+    for (const elemento of args) {
+        console.log(elemento);
+    }
+}
+restFuncion(varibleSpread,"Miguel",2,3,4);
+console.log("-------------FLECHA 2------------- ");
+//Llamadas tambien funcioens anonimas
+//ANTES
+let variableFuncionAnonima = function funcionAnonima(params) {
+    return params;
+}
+console.log(variableFuncionAnonima("Hola Soy una funcion anonima"));
+//AHORA
+let variableFuncionFlecha2 = (params) => params;
+console.log(variableFuncionFlecha2("Hola Soy una funcion flecha"));
+
+//OTRAS FORMAS NUEVAS
+let variableFuncionFlecha3 = params => params + params;
+console.log(variableFuncionFlecha3(3));
+
+let variableFuncionFlecha4 = () => console.log("Hola soy una funcion flecha sin parametros ");
+variableFuncionFlecha4()
+
+let variableFuncionFlecha5 = (params1,params2) => {
+    return params1+params2
+};
+console.log(variableFuncionFlecha5(4,1));
+
+console.log("-------------CALLBACK------------- ");
+function funcionOperaciones(v1,v2,resta,multiplicar) {
+    let restaResult = v1-v2
+    let multiResult = v1*v2
+    resta("Callback "+restaResult)
+    multiplicar("Callback "+multiResult)
+}
+
+funcionOperaciones(4,2,function(dato) {
+        console.log("La resta es  "+dato);
+    },
+    function (dato) {
+        console.log("La multiplicacion es  "+dato);
+    }
+)
+
+funcionOperaciones(
+    4,2,(dato) =>console.log("La resta es  "+dato), (dato)=>console.log("La multiplicacion es  "+dato)
+
+)
+
 
 console.log("==================== OBJETOS ==================== ");
 let variableObjeto ={
@@ -338,3 +411,5 @@ let variableObjeto5 = JSON.parse(variableObjeto4)
 console.log(variableObjeto5);
 // LOS OBJETOS PUEDEN TENET METODOS GET SET, PROTOTYPE, CALL, APPLY
 
+
+console.log("==================== 5- CLASES ==================== ");
