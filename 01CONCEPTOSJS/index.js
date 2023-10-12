@@ -602,7 +602,7 @@ function resultadoDeCallback(var1,funcionCallback) {
 resultadoDeCallback(1,miFuncionCallback)
 
 console.log("==================== 7 FUNCIONES SETTIMEOUT ==================== ");
-//llamadas asincronas con uso de setTimeOut
+//llamadas asincronas con uso de setTimeOut -> requiere como parametro un callback, segundos
 //miFuncionCallback()
 setTimeout(function(){
     console.log("Mi funcion se va ejecutar en 3 segundos  ")
@@ -610,8 +610,48 @@ setTimeout(function(){
 setTimeout(()=>console.log("Mi funcion se va ejecutar en 4 segundos  "),4000)
 
 console.log("==================== 8 FUNCIONES SETINTERVAL ==================== ");
-//sincrona - sincroniza segun los segundos
-setInterval(function() {
-    let fecha = new Date();
-    console.log(`${fecha.getHours}:${fecha.getMinutes}:${fecha.getSeconds}:`);
-},1000)
+//sincrona - sincroniza segun los segundos -> requiere como parametro un callback, segundos
+
+//setInterval(function() {
+//    let fecha = new Date();
+//    console.log(`${fecha.getHours}:${fecha.getMinutes}:${fecha.getSeconds}:`);
+//},1000)
+
+console.log("==================== 9 PROMESAS ==================== ");
+//
+let miPromesa = new Promise(function(resuelto, rechazado){
+    let expresion = true;
+    if (expresion) {
+        resuelto('Resolvio correcto')
+    }else{
+        rechazado('se produjo un error')
+    }
+})
+//primera forma
+//miPromesa.then(valor=>console.log(valor),error=>console.log(error))
+//seguna forma
+//miPromesa.then(valor=>console.log(valor)).catch(error=>console.log(error))
+miPromesa.then(function(valor) {
+    console.log(valor);
+},function(error){
+    console.log(error);
+});
+
+console.log("----------------------- 9-1 PROMESAS  + SETTIMEOUT ----------------------- ");
+
+//todo con funcion flecha, el "rechazado no" es obligatorio
+let miPromesa2 = new Promise(resuelto =>{
+    console.log("incio de promesa");
+    setTimeout(()=>resuelto("saludos, esta es una promesa mas setTimeout 6 segundos"),6000)
+})
+miPromesa2.then(valor=>console.log(valor))
+
+let miPromesa3 = new Promise(function(resuelto){
+    console.log("incio de promesa2");
+    setTimeout(function(){
+        resuelto("saludos, esta es una promesa mas setTimeout2 7 segundos")
+    },7000)
+})
+miPromesa3.then(function(valor){
+    console.log(valor);
+})
