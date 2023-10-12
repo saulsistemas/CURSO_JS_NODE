@@ -237,6 +237,33 @@ for (let index = 0; index < variableArregloCursos.length; index++) {
     const element = variableArregloCursos[index];
     console.log(index+"-> "+element);
 }
+
+console.log("==================== RECORRER AREGLOS CON FOREACH==================== ");
+var arraysLenguajes = new Array("PHP", "JAVA","JS","C#")
+
+arraysLenguajes.forEach((elemento,indice) => {
+    console.log(indice+ " "+elemento);
+});
+
+arraysLenguajes.forEach(function(elemento,indice,arr){
+    console.log(arr);
+    console.log(indice+ " "+elemento);
+});
+console.log("==================== RECORRER AREGLOS CON FOR IN Y OF==================== ");
+//For IN muestra los indices del array
+//FOR OF muestra los elementos del array
+
+    
+    for (const indice in arraysLenguajes) {
+        console.log(indice);
+    }
+    for (const indice in arraysLenguajes) {
+        console.log(arraysLenguajes[indice]);
+    }
+    for (const elemento of arraysLenguajes) {
+        console.log(elemento);
+    }
+
 console.log("==================== MODIFICAR AREGLOS ==================== ");
 variableArregloCursos[1]='GO'
 for (let index = 0; index < variableArregloCursos.length; index++) {
@@ -255,6 +282,12 @@ for (let index = 0; index < variableArregloCursos.length; index++) {
     console.log(index+"-> "+element);
 }
 console.log(Array.isArray(variableArregloCursos))
+
+console.log("==================== BUSQUEDAS AREGLOS ==================== ");
+var busquedaArreglo = variableArregloCursos.find(function(elemento){return elemento =="C#";})
+console.log("Elemento encontado "+busquedaArreglo);
+var busquedaArregl2 = variableArregloCursos.findIndex(elemento =>elemento =="C#")
+console.log("Elemento encontado "+busquedaArregl2);
 
 console.log("==================== FUNCIONES ==================== ");
 //es un bloque de código o un conjunto de instrucciones que realiza una tarea específica
