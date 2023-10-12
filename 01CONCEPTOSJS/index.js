@@ -521,3 +521,28 @@ Empleado.saludar()
 Empleado.saludar2("Clase Empleado")
 console.log(Persona.contadorObjetoPersona);
 console.log(Empleado.contadorObjetoPersona);
+
+console.log("==================== 6- MANEJO ERRORES ==================== ");
+console.log("-------------TRY CATCH FINALLY------------- ");
+'use strict'
+try {
+    let x=10;
+    
+} catch (error) {
+    console.log(error);
+}finally{
+    //siempre se va ejecutar
+    console.log("termina la revision de errores");
+}
+console.log('Continuemos ...');
+console.log("-------------THROW------------- ");
+try {
+    let x=10;
+    //arrojar nuestros errores
+    throw 'Mi error'
+} catch (error) {
+    console.log(error);
+}finally{
+    //siempre se va ejecutar
+    console.log("termina la revision de errores");
+}
