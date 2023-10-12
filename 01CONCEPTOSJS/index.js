@@ -446,3 +446,70 @@ console.log(variableObjeto5);
 
 
 console.log("==================== 5- CLASES ==================== ");
+console.log("-------------CONSTRUCTOR, METODOS GET Y SET OBJETOS------------- ");
+//Extiene de la clase Object = extends Object
+class Persona{
+    constructor(nombre,apellido){
+        this._nombre = nombre;
+        this._apellido = apellido;
+    }
+    //Metodos get y set
+    get getNombre(){
+        return this._nombre;
+    }
+    set setNombre(nombre){
+        this._apellido = nombre;
+    }
+    //Metodo
+    nombreCompleto(){
+        return this._nombre +" "+this._apellido
+    }
+    toString(){
+        return this.nombreCompleto()
+    }
+    //Metodos estaticos, se asocia con una clase pero no con el objeto, no es posible llamarlo desde un objeto
+    // Persona.saludar()
+    static saludar(){
+        console.log("Saludos desde el metodo static");
+    }
+    static saludar2(parametro){
+        console.log("Saludos desde el metodo static + "+parametro);
+    }
+}
+let persona1 = new Persona("Carlos","Ronaldo")
+console.log(persona1);
+persona1.setNombre="Miguel"
+console.log(persona1.getNombre);
+console.log(persona1);
+console.log(persona1.nombreCompleto());
+
+console.log("-------------HERENCIA, SOBREESCRITURA------------- ");
+class Empleado extends Persona{
+    constructor(nombre,apellido,departamento){
+        super(nombre,apellido);
+        this._departamento = departamento;
+    }
+    //Metodos get y set
+    get geDepartamento(){
+        return this._departamento;
+    }
+    set setDepartamento(departamento){
+        this._departamento = departamento;
+    }
+    //SOBREESCRITURA de la clase padre (OBJECT)
+    nombreCompleto(){
+        //return this._nombre +" "+this._apellido+" " +this._departamento
+        return super.nombreCompleto()+" " +this._departamento
+    }
+}
+
+let empleado1 = new Empleado("Juan","Romario","sistemas")
+console.log(empleado1);
+console.log(empleado1.nombreCompleto());
+console.log(empleado1.toString());
+
+console.log("-------------STATIC------------- ");
+Persona.saludar()
+Persona.saludar2("Clase Persona")
+Empleado.saludar()
+Empleado.saludar2("Clase Empleado")
