@@ -655,3 +655,15 @@ let miPromesa3 = new Promise(function(resuelto){
 miPromesa3.then(function(valor){
     console.log(valor);
 })
+
+console.log("==================== 10 ASYNC ==================== ");
+//SIMPLIFICA EL USO DE PROMESAS
+//ASYNC INDICA QUE UNA FUNCION VA REGRESAR UNA PROMESA
+
+async function miFuncionConPromesa(){
+    return 'saludos con promesa y async';
+}
+//porque es una funcion hay que agregarle los parentesis
+miFuncionConPromesa().then(function(valor){
+    console.log(valor);
+})
