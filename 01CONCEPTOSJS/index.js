@@ -546,3 +546,72 @@ try {
     //siempre se va ejecutar
     console.log("termina la revision de errores");
 }
+
+console.log("==================== REPASO FUNCIONES FLECHAS Y CALLBACK ==================== ");
+
+console.log("-------------FLECHA 2------------- ");
+//Llamadas tambien funcioens anonimas
+//ANTES
+let variableFuncionAnonima11 = function funcionAnonima(params) {
+    return params;
+}
+console.log(variableFuncionAnonima11("Hola Soy una funcion anonima"));
+//AHORA
+let variableFuncionFlecha21 = (params) => params;
+console.log(variableFuncionFlecha21("Hola Soy una funcion flecha"));
+
+//OTRAS FORMAS NUEVAS
+let variableFuncionFlecha31 = params => params + params;
+console.log(variableFuncionFlecha31(3));
+
+let variableFuncionFlecha41 = () => console.log("Hola soy una funcion flecha sin parametros ");
+variableFuncionFlecha41()
+
+let variableFuncionFlecha51 = (params1,params2) => {
+    return params1+params2
+};
+console.log(variableFuncionFlecha51(4,1));
+
+console.log("-------------CALLBACK------------- ");
+function funcionOperaciones(v1,v2,resta,multiplicar) {
+    let restaResult = v1-v2
+    let multiResult = v1*v2
+    resta("Callback "+restaResult)
+    multiplicar("Callback "+multiResult)
+}
+
+funcionOperaciones(4,2,function(dato) {
+        console.log("La resta es  "+dato);
+    },
+    function (dato) {
+        console.log("La multiplicacion es  "+dato);
+    }
+)
+
+funcionOperaciones(
+    4,2,(dato) =>console.log("La resta es  "+dato), (dato)=>console.log("La multiplicacion es  "+dato)
+
+)
+
+function miFuncionCallback() {
+    console.log("Hola esta funcion va para el callback");
+}
+function resultadoDeCallback(var1,funcionCallback) {
+    funcionCallback();
+}
+resultadoDeCallback(1,miFuncionCallback)
+
+console.log("==================== 7 FUNCIONES SETTIMEOUT ==================== ");
+//llamadas asincronas con uso de setTimeOut
+//miFuncionCallback()
+setTimeout(function(){
+    console.log("Mi funcion se va ejecutar en 3 segundos  ")
+},3000)
+setTimeout(()=>console.log("Mi funcion se va ejecutar en 4 segundos  "),4000)
+
+console.log("==================== 8 FUNCIONES SETINTERVAL ==================== ");
+//sincrona - sincroniza segun los segundos
+setInterval(function() {
+    let fecha = new Date();
+    console.log(`${fecha.getHours}:${fecha.getMinutes}:${fecha.getSeconds}:`);
+},1000)
