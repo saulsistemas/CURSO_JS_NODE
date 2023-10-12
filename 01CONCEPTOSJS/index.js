@@ -449,9 +449,15 @@ console.log("==================== 5- CLASES ==================== ");
 console.log("-------------CONSTRUCTOR, METODOS GET Y SET OBJETOS------------- ");
 //Extiene de la clase Object = extends Object
 class Persona{
+    static contadorObjetoPersona=0;
+
+    //atributo de objetos
+    email = 'este es mi correo';
     constructor(nombre,apellido){
         this._nombre = nombre;
         this._apellido = apellido;
+        Persona.contadorObjetoPersona++;
+        console.log('Se incremente '+ Persona.contadorObjetoPersona);
     }
     //Metodos get y set
     get getNombre(){
@@ -507,9 +513,11 @@ let empleado1 = new Empleado("Juan","Romario","sistemas")
 console.log(empleado1);
 console.log(empleado1.nombreCompleto());
 console.log(empleado1.toString());
-
+console.log(empleado1.email);
 console.log("-------------STATIC------------- ");
 Persona.saludar()
 Persona.saludar2("Clase Persona")
 Empleado.saludar()
 Empleado.saludar2("Clase Empleado")
+console.log(Persona.contadorObjetoPersona);
+console.log(Empleado.contadorObjetoPersona);
