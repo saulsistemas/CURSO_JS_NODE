@@ -826,7 +826,7 @@ getEmpleadoBI(idl,function(error,empleado){
 });
 
 console.log("==================== 14 REPASO PROMESAS ==================== ");
-//callback-Funcion que se manda por argumento a otra funcion
+//sirve para trabajar peticiones asincronas, asimismo, es utilizado para poder disminuir el uso de callbacks
 const getEmpleadoBI2= function(id){
     //FUNCION DE FLECHA Y ENVIAR UN SOLO ELEMENTO
     return new Promise(function(resuelto, rechazado){
