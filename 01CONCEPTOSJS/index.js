@@ -857,14 +857,25 @@ const getSalarioBD2= function(id){
 //    console.log(err);
 //})
 
+//getEmpleadoBI2(idl)
+//    .then(function(empl){
+//        getSalarioBD2(idl)
+//        .then(function(sala){
+//            console.log("El empleado: "+empl+" tiene el salario de : "+ sala);
+//        },function(erro){
+//            console.log(erro);
+//        })
+//    },function(err){
+//        console.log(err);
+//    })
+
+let nombrePromesa;
 getEmpleadoBI2(idl)
-    .then(function(empl){
-        getSalarioBD2(idl)
-        .then(function(sala){
-            console.log("El empleado: "+empl+" tiene el salario de : "+ sala);
-        },function(erro){
-            console.log(erro);
-        })
-    },function(err){
-        console.log(err);
+    .then(function(emp){
+        nombrePromesa =emp;
+        return getSalarioBD2(idl)
     })
+    .then(function(sala){
+        console.log("El empleado: "+nombrePromesa+" tiene el salario de : "+ sala);
+    })
+    .catch(function(err){console.log(err);})
