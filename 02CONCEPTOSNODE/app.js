@@ -2,7 +2,12 @@
 const {llaveCrearArchivo} = require('./helpers/multiplicar')
 
 console.clear()
-const base = 8;
+//const base = 8;
+//console.log(process.argv);
+
+const [,,arg3] = process.argv;
+const [,base= 5] = arg3.split("=")
+//console.log(base);
 
 llaveCrearArchivo(base)
     .then(function (nombreArchivo) {
