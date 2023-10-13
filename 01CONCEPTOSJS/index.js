@@ -917,3 +917,28 @@ getInfoUsuarios(3)
         console.log("WAIT "+empleado);
     })
     .catch(err => console.log(err))//solo se utiliza un catch para todo los errores
+
+
+
+
+//es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa 
+//para completar algún tipo de rutina o acción.
+console.log("-------------EJEMPLO CALLBACK 1------------- ");
+let operacionesCallback =function(n1,n2,sumaCallback,restaCallback){
+    let suma = n1+n2;
+    let resta = n1-n2;
+    sumaCallback(suma);
+    restaCallback(resta);
+}
+operacionesCallback(5,4,
+    (resultado)=>console.log("El resultado del al funcion callback SUMA es: "+resultado),
+    (resultado)=>console.log("El resultado del al funcion callback RESTA es: "+resultado)
+) 
+console.log("-------------EJEMPLO CALLBACK 2------------- ");
+function funcionSuma(resultado){
+    console.log("El resultado del al funcion callback SUMA es: "+resultado);
+}
+function funcionResta(resultado){
+    console.log("El resultado del al funcion callback RESTA es: "+resultado);
+}
+operacionesCallback(5,4,funcionSuma,funcionResta)
