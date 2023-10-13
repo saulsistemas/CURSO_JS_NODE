@@ -6,7 +6,7 @@ console.clear()
 //console.log(process.argv);
 
 const [,,arg3] = process.argv;
-const [,base= 5] = arg3.split("=")
+const [,base= 12] = arg3.split("=")
 //console.log(base);
 
 llaveCrearArchivo(base)
