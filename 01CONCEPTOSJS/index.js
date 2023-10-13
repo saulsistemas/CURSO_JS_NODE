@@ -774,10 +774,7 @@ const salarioBD = [
         id:2,
         salario:2000
     },
-    {
-        id:3,
-        salario:3000
-    },
+    
 ]
 const getEmpleadoBI = function(id,callback){
     
@@ -803,7 +800,7 @@ const getSalarioBD= function(id,callback){
         callback("El Salario con ID: "+id+" No existe")
     }
 } 
-const idl =2
+const idl =3
 getEmpleadoBI(idl,function(error,empleado){
     if (error) {
         console.log('ERROR!');
@@ -828,3 +825,46 @@ getEmpleadoBI(idl,function(error,empleado){
 
 });
 
+console.log("==================== 14 REPASO PROMESAS ==================== ");
+//callback-Funcion que se manda por argumento a otra funcion
+const getEmpleadoBI2= function(id){
+    //FUNCION DE FLECHA Y ENVIAR UN SOLO ELEMENTO
+    return new Promise(function(resuelto, rechazado){
+        const empleados = empleadosBD.find(elemento => elemento.id === id)?.nombre;
+        (empleados)
+        ? resuelto(empleados)
+        : rechazado('no exite el usuario de la promesa '+ id)
+    })
+} 
+const getSalarioBD2= function(id){
+    //FUNCION DE FLECHA Y ENVIAR UN SOLO ELEMENTO
+    return new Promise(function(resuelto, rechazado){
+        const salario = salarioBD.find(elemento => elemento.id === id)?.salario;
+        (salario)
+        ? resuelto(salario)
+        : rechazado('no exite el salario de la promesa '+ id)
+    })
+} 
+
+//getEmpleadoBI2(idl).then(function(empl){
+//    console.log("Promesa repaso "+empl);
+//},function(err){
+//    console.log(err);
+//})
+//getSalarioBD2(idl).then(function(sala){
+//    console.log("Promesa repaso "+sala);
+//},function(err){
+//    console.log(err);
+//})
+
+getEmpleadoBI2(idl)
+    .then(function(empl){
+        getSalarioBD2(idl)
+        .then(function(sala){
+            console.log("El empleado: "+empl+" tiene el salario de : "+ sala);
+        },function(erro){
+            console.log(erro);
+        })
+    },function(err){
+        console.log(err);
+    })
