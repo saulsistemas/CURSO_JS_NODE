@@ -1,13 +1,16 @@
-const { KeyMosntraMenu, pausa } = require('./helpers/mensajes');
+//const { inquirerMenu } = require('./helpers/inquirer');
+import { inquirerMenu }  from './helpers/inquirer';
 
-require('colors');
+//const {  KeyMosntraMenu, pausa } = require('./helpers/mensajes');
+import 'colors';
+
 console.clear()
 
 const main = async function(){
     console.log("Hola Mundo");
     let opt="";
     do{
-        opt = await KeyMosntraMenu();
+        opt = await inquirerMenu();
         console.log({opt});
         if(opt !== "0") await pausa();
     }while(opt !== "0");

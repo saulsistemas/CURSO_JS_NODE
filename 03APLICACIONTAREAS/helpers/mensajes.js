@@ -3,9 +3,7 @@ require('colors');
 const mosntraMenu = function () {
     return new Promise(function(resolve, reject){
         console.clear();
-        console.log("==========================".green);
-        console.log("   Seleccione una opción".green);
-        console.log("==========================\n".green);
+       
     
         console.log("1.".green+" Crear tarea");
         console.log("2.".green+" Listar tareas");
