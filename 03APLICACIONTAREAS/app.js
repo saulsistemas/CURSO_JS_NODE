@@ -1,12 +1,17 @@
 const { KeyMosntraMenu, pausa } = require('./helpers/mensajes');
 
 require('colors');
+console.clear()
 
 const main = async function(){
-    console.clear()
     console.log("Hola Mundo");
-    KeyMosntraMenu();
-    pausa();
+    let opt="";
+    do{
+        opt = await KeyMosntraMenu();
+        console.log({opt});
+        if(opt !== "0") await pausa();
+    }while(opt !== "0");
+    
 }
 
 main()
