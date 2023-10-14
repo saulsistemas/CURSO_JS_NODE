@@ -234,3 +234,134 @@ const chequeaComportamiento2 = (comportamiento) => {
   }
   
   pideTelefonoNuevo(true, 90);
+
+  console.log("====================  PROMESAS DE UNO ==================== ");
+
+  const usuarios = [{id:1,nombre:'Juan'},{id:2,nombre:'Miguel'},{id:3,nombre:'Carlos'}];
+
+
+  const getUsuario = (id) =>{
+    return new Promise((resolve, reject)=>{
+      //emp = representa un usuario 
+      let usuario = usuarios.find((user)=>{
+        return user.id === id
+      });
+      if (usuario) {
+        resolve(usuario)
+      } else {
+        reject("No existe usuario")
+      }
+    })
+  }
+
+  getUsuario(3)
+    .then((empleado)=>console.log("Promesa 1 "+empleado.nombre))
+    .catch(error=>console.log(error))
+
+    console.log("====================  PROMESAS DE DOS ==================== ");
+
+    const sueldos  = [{id:1,sueldo:200},{id:2,sueldo:300}];
+
+    const getUsuario2 = (id) =>{
+      return new Promise((resolve, reject)=>{
+        //emp = representa un usuario 
+        let usuario = usuarios.find((user)=>{
+          return user.id === id
+        });
+        if (usuario) {
+          resolve(usuario)
+        } else {
+          reject("No existe usuario")
+        }
+      })
+    }
+    const getSueldo = (id) =>{
+      return new Promise((resolve, reject)=>{
+        //emp = representa un usuario 
+        let sueldo = sueldos.find((sal)=>{
+          return sal.id === id
+        });
+        if (sueldo) {
+          resolve(sueldo)
+        } else {
+          reject("No existe sueldo")
+        }
+      })
+    }
+    let idUser = 4
+    //PROMESAS INDEPENDIENTE
+    //getUsuario2(idUser)
+    //.then((usuario)=>console.log(usuario))
+    //.catch(error=>console.log(error))
+    //getSueldo(idUser)
+    //.then((sueldo)=>console.log(sueldo))
+    //.catch(error=>console.log(error))
+
+    //PROMESAS HELP
+    //getUsuario2(idUser).then((usuario)=>{
+    //  getSueldo(idUser).then((salario)=>{
+    //    console.log("El usuario: "+usuario.nombre+" y su sueldo es: "+salario.sueldo);
+    //  }).catch((error)=>{
+    //    console.log(error);
+    //  })
+    //}).catch(error=>console.log(error))
+
+    //PROMESA EN CADENA
+    let nombreUsuario;
+    getUsuario2(idUser).then((usuario)=>{
+      nombreUsuario = usuario.nombre;
+      return getSueldo(idUser)
+    }).then((salario)=>{
+      console.log("Promesa 2 -El Usuario: "+nombreUsuario+" y su sueldo es: "+salario.sueldo);
+    }).catch(error=>console.log(error))
+
+    console.clear()
+    console.log("====================  ASYNC AWAIT ==================== ");
+
+    //---------1 crear promesas
+    //funciones flecha
+    const getUsuario3 = (id) =>{
+      return new Promise((resolve, reject)=>{
+        //emp = representa un usuario 
+        let usuario = usuarios.find((user)=>{
+          return user.id === id
+        });
+        if (usuario) {
+          resolve(usuario)
+        } else {
+          reject("No existe usuario")
+        }
+      })
+    }
+    const getSueld3 = (id) =>{
+      return new Promise((resolve, reject)=>{
+        //emp = representa un usuario 
+        let sueldo = sueldos.find((sal)=>{
+          return sal.id === id
+        });
+        if (sueldo) {
+          resolve(sueldo)
+        } else {
+          reject("No existe sueldo")
+        }
+      })
+    }
+  //---------2 crear una funcion con async a wait
+  //transforma una funcion en una promesa(retorna una promesa), para eso se necesita crear una funcuion antes
+  const getInfoUsuarios = async(id)=>{
+    try {
+      const usuario = await getUsuario3(id)
+      const sueldo = await getSueld3(id)
+      return "Async await - el suedo del usuario: "+usuario.nombre+" es: "+sueldo.sueldo;
+    } catch (error) {
+      throw "Async await - el error es - "+error;      
+    }
+  }
+  //---------3 llamar a la funcion
+  getInfoUsuarios(idUser).then((msg)=>{
+    console.log("Correcto");
+    console.log(msg);
+  }).catch(error=>{
+    console.log("Mal");
+    console.log(error)
+  });
