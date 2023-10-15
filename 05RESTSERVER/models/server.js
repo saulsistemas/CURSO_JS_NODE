@@ -1,9 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        
+        this.usuariosPatch ='/api/usuarios';
         //Middlewares - Funciones que van añadirle otra funcionalidad (funcion que siempre se va ejecutar al levantar el servidor)
         this.middlewares();
 
@@ -11,34 +12,13 @@ class Server{
         this.router();
     }
     middlewares(){
+        //cors - proteger nuestro servidor
+        this.app.use(cors())
         //Directorio  publico
         this.app.use(express.static('public'))
     }
     router(){
-        this.app.get('/api',(req,res)=>{
-            res.json({
-                ok:true,
-                msg:"Get Api"
-            })
-        })
-        this.app.put('/api',(req,res)=>{
-            res.status(500).json({
-                ok:true,
-                msg:"put Api"
-            })
-        })
-        this.app.post('/api',(req,res)=>{
-            res.status(201).json({
-                ok:true,
-                msg:"post Api"
-            })
-        })
-        this.app.delete('/api',(req,res)=>{
-            res.json({
-                ok:true,
-                msg:"delete Api"
-            })
-        })
+        this.app.use(this.usuariosPatch, require('../routes/user.router'));
     }
 
     listen(){
