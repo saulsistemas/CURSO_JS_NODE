@@ -1,19 +1,18 @@
-const http = require('http');
-//request  = solicitud que esta solicitando por parte del cliente
-//response = lo que yo le voy a responder
-const server = http.createServer(function(request, response){
-    //response.writeHead(200, { 'Content-Type': 'application/json'})
-    response.setHeader('Content-Disposition','attachment; filename=lista.csv')
-    response.writeHead(200, { 'Content-Type': 'application/csv'})
+const express = require('express');
+const app = express()
+const port = 8080;
 
-    const persona ={
-        id:1,
-        mombre:'saul'
-    }
-    response.write('id; nombre\n' );
-    response.write('1; juan\n' );
-    response.write('2; pedro\n' );
-    response.end()
-}).listen(8080);
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
 
-console.log("escuchando en el puerto ", 8080);
+app.get('/hola-mundo', function (req, res) {
+    res.send('Hola mundo en su respectiva ruta')
+})
+
+app.get('*', function (req, res) {
+    res.send('404 | Page not found')
+})
+app.listen(port,function(){
+    console.log("el servidor esta funcionando en el server ",port);
+})
