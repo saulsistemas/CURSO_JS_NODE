@@ -3,10 +3,13 @@ const path = require('path');
 
 const app = express()
 const port = 8080;
+
+var hbs = require('hbs');
 //TODO: require('hbs)
 const viewsPath = path.join(__dirname, '/public/views');
 app.set('views', viewsPath);
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/public/views/partials');
 
 //Servir contenido estatico
 app.use(express.static('public'));
@@ -18,10 +21,16 @@ app.get('/',function(request,response){
     })
 })
 app.get('/generic', function (req, res) {
-    res.sendFile(__dirname+'/public/generic.html')
+    res.render('generic',{
+        nombre: 'Saul Santmaria',
+        titulo: 'curso de node',
+    })
 })
 app.get('/elements', function (req, res) {
-    res.sendFile(__dirname+'/public/elements.html')
+    res.render('elements',{
+        nombre: 'Saul Santmaria',
+        titulo: 'curso de node',
+    })
 })
 app.get('*', function (req, res) {
     res.sendFile(__dirname+'/public/404.html')
