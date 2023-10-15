@@ -15,8 +15,29 @@ class Server{
         this.app.use(express.static('public'))
     }
     router(){
-        this.app.get('/',(req,res)=>{
-            res.send("Hola mundo xd")
+        this.app.get('/api',(req,res)=>{
+            res.json({
+                ok:true,
+                msg:"Get Api"
+            })
+        })
+        this.app.put('/api',(req,res)=>{
+            res.json({
+                ok:true,
+                msg:"put Api"
+            })
+        })
+        this.app.post('/api',(req,res)=>{
+            res.json({
+                ok:true,
+                msg:"post Api"
+            })
+        })
+        this.app.delete('/api',(req,res)=>{
+            res.json({
+                ok:true,
+                msg:"delete Api"
+            })
         })
     }
 
