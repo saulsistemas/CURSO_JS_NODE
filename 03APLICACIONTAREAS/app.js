@@ -14,10 +14,19 @@ const main = async function(){
 
     console.log("Hola Mundo");
     let opt="";
+    const tareas = new Tareas()
     do{
-        //opt = await fn.inquirerMenu();
-        //console.log({opt});
-        const tareas = new Tareas('compara comida')
+        opt = await fn.inquirerMenu();
+        switch (opt) {
+            case '1':
+                const desc = await fn.leerImput("Descripcion: ")
+                console.log(desc);
+            break;
+            case '2':
+                console.log(tareas._listado);
+            break;
+            
+        }
         const tarea = new Tarea('compara comida')
         tareas._listado[tarea.id] = tarea;
         console.log(tareas);
