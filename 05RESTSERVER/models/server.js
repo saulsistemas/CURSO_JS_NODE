@@ -1,16 +1,25 @@
 const express = require('express');
 const cors = require('cors');
+const { dbConnection } = require('../database/config');
 class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
         this.usuariosPatch ='/api/usuarios';
+        //conectar
+        this.conectarDB();
+
         //Middlewares - Funciones que van añadirle otra funcionalidad (funcion que siempre se va ejecutar al levantar el servidor)
         this.middlewares();
 
         //rutas
         this.router();
     }
+
+    async conectarDB(){
+        await dbConnection()
+    }
+
     middlewares(){
         //cors - proteger nuestro servidor
         this.app.use(cors())
