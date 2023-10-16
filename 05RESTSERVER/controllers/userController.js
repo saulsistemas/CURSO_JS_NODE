@@ -33,12 +33,24 @@ const usuarioPost=async (req,res)=>{
         usuario
     })
 }
-const usuarioPut= (req,res)=>{
-    const id = req.params.id;
+const usuarioPut= async (req,res=response)=>{
+    //const id = req.params.id;
+    const {id} = req.params;
+    const {password,google,correo,...resto} = req.body;
+
+    //todo validar contra BD
+    if (password) {
+        //encriptar la contraseña
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync(password,salt);
+    }
+    const usuario = await Usuario.findByIdAndUpdate(id, resto)
+
     res.json({
         ok:true,
         msg:"Controlador - put Api",
-        id
+        id,
+        usuario,
     })
 }
 const usuarioPatch= (req,res)=>{
