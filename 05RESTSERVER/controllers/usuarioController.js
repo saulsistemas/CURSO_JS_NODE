@@ -1,9 +1,14 @@
-const { response } = require("express")
+const { response,request } = require("express")
 
-const usuarioGet = (req,res = response)=>{
+const usuarioGet = (req = request,res = response)=>{
+   // const query = req.query;
+   //desestructuracion
+    const {q,nombre='No name',apike,page=1,limit} = req.query;
     res.json({
         ok:true,
-        msg:"Controlador - Get Api"
+        msg:"Controlador - Get Api",
+        //query,
+        q,nombre,apike,page,limit
     })
 }
 const usuarioPost=(req,res)=>{
@@ -19,9 +24,11 @@ const usuarioPost=(req,res)=>{
     })
 }
 const usuarioPut= (req,res)=>{
-    res.status(500).json({
+    const id = req.params.id;
+    res.json({
         ok:true,
-        msg:"Controlador - put Api"
+        msg:"Controlador - put Api",
+        id
     })
 }
 const usuarioPatch= (req,res)=>{
