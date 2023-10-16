@@ -7,9 +7,15 @@ const usuarioGet = (req,res = response)=>{
     })
 }
 const usuarioPost=(req,res)=>{
-    res.status(201).json({
+    //const body = req.body;
+    //desustructurar
+    const {nombre,edad} = req.body;
+    res.json({
         ok:true,
-        msg:"Controlador - post "
+        msg:"Controlador - post ",
+        //body,
+        nombre,
+        edad
     })
 }
 const usuarioPut= (req,res)=>{
