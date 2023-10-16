@@ -3,7 +3,7 @@ const { check } = require('express-validator');
 
 const { usuarioGet, usuarioPut, usuarioPost, usuarioDelete, usuarioPatch } = require('../controllers/userController');
 const { validarCampos } = require('../middleware/validar-campos');
-const { esRolValido } = require('../helpers/db-validators');
+const { esRolValido, emailExiste } = require('../helpers/db-validators');
 //const router = require('express').Router();
 const router = Router();
 
@@ -12,7 +12,8 @@ router.put('/:id',usuarioPut)
 router.post('/',[
     check('nombre','el nombre es obligatorio').not().isEmpty(),
     check('password','el password debe ser más de 6 letras').isLength({min:6}),
-    check('correo','el correo no es valido').isEmail(),
+    //check('correo','el correo no es valido').isEmail(),
+    check('correo').custom(emailExiste),
     //check('rol','no es un rol permitido').isIn(['ADMIN_ROLE','USER_ROLE']),
 
     //check('rol').custom((rol)=>esRolValido(rol)),//si va retornar el mismo rol, podemos resumirlo como abajao
