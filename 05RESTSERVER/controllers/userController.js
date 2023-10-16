@@ -72,10 +72,16 @@ const usuarioPatch= (req,res)=>{
         msg:"Controlador - patch Api"
     })
 }
-const usuarioDelete=(req,res)=>{
+const usuarioDelete=async (req,res)=>{
+    const {id} =req.params;
+
+    //Fisicamente lo borramos
+    //const usuario = await Usuario.findByIdAndDelete(id);
+
+    const usuario = await Usuario.findByIdAndUpdate(id,{estado: false})
+
     res.json({
-        ok:true,
-        msg:"Controlador - delete Api"
+        usuario
     })
 }
 module.exports = {
