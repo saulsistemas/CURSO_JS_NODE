@@ -2,15 +2,17 @@ const { response,request } = require("express")
 const bcryptjs = require('bcryptjs')
 const Usuario = require('../models/user');
 
-const usuarioGet = (req = request,res = response)=>{
+const usuarioGet = async(req = request,res = response)=>{
    // const query = req.query;
    //desestructuracion
-    const {q,nombre='No name',apike,page=1,limit} = req.query;
+    //const {q,nombre='No name',apike,page=1,limit} = req.query;
+    const {limite =5,desde=0} = req.query;
+    const usuarios = await Usuario.find()
+        .skip(Number(desde))
+        .limit(Number(limite))
+
     res.json({
-        ok:true,
-        msg:"Controlador - Get Api",
-        //query,
-        q,nombre,apike,page,limit
+        usuarios
     })
 }
 const usuarioPost=async (req,res)=>{
@@ -27,9 +29,7 @@ const usuarioPost=async (req,res)=>{
     //desustructurar
     //const {nombre,edad} = req.body;
     res.json({
-        ok:true,
-        msg:"Controlador - post ",
-        //body,
+        
         usuario
     })
 }
