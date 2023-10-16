@@ -1,4 +1,4 @@
-const { Schema,model, models } = require("mongoose");
+const { Schema,model } = require("mongoose");
 
 const UsuarioSchema = Schema({
     nombre:{
@@ -23,12 +23,12 @@ const UsuarioSchema = Schema({
         //enum:['ADMIN_ROLE','USER_ROLE','']
     },
     estado:{
-        type:Boolean,
-        dafault:true,
+        type: Boolean,
+        default: true,
     },
     google:{
-        type:Boolean,
-        dafault:false,
+        type: Boolean,
+        default: false,
     }
 });
 //para que no retorne la contraseña ni la version (tiene que ser una funcion normal)

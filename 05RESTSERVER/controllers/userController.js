@@ -7,15 +7,28 @@ const usuarioGet = async(req = request,res = response)=>{
    //desestructuracion
     //const {q,nombre='No name',apike,page=1,limit} = req.query;
     const {limite =5,desde=0} = req.query;
-    const usuarios = await Usuario.find()
+
+    //-ATERIORES PROMESAS
+    //const usuarios = await Usuario.find({estado: true})
+    //    .skip(Number(desde))
+    //    .limit(Number(limite))
+    //const total = await Usuario.countDocuments({estado: true});
+    //-FIN ATERIORES PROMESAS
+
+
+    const [total,usuarios] = await Promise.all([
+        Usuario.countDocuments({estado: true}),
+        await Usuario.find({estado: true})
         .skip(Number(desde))
         .limit(Number(limite))
-
+    ]);
     res.json({
-        usuarios
+
+        total,
+        usuarios,
     })
 }
-const usuarioPost=async (req,res)=>{
+const usuarioPost=async (req,res=response)=>{
 
     const {nombre,correo,password,rol} = req.body;
     const usuario = new Usuario({nombre,correo,password,rol});
