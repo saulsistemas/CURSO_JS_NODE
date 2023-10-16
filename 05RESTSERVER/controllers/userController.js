@@ -36,7 +36,7 @@ const usuarioPost=async (req,res)=>{
 const usuarioPut= async (req,res=response)=>{
     //const id = req.params.id;
     const {id} = req.params;
-    const {password,google,correo,...resto} = req.body;
+    const {_id,password,google,correo,...resto} = req.body;
 
     //todo validar contra BD
     if (password) {

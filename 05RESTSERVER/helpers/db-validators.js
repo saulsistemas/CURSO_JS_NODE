@@ -15,4 +15,13 @@ const emailExiste = async(mail='')=>{
     }
         
 }
-module.exports ={esRolValido,emailExiste}
+
+const exiteUsuarioporID = async(id)=>{
+    //verificar si el correo existe
+    const existeUsuario = await Usuario.findById(id);
+    if(!existeUsuario){
+        throw new Error('El id '+id+' no existe en la BD')
+    }
+        
+}
+module.exports ={esRolValido,emailExiste,exiteUsuarioporID}
