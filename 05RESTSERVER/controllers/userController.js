@@ -1,5 +1,5 @@
 const { response,request } = require("express")
-
+const Usuario = require('../models/user')
 const usuarioGet = (req = request,res = response)=>{
    // const query = req.query;
    //desestructuracion
@@ -11,16 +11,18 @@ const usuarioGet = (req = request,res = response)=>{
         q,nombre,apike,page,limit
     })
 }
-const usuarioPost=(req,res)=>{
-    //const body = req.body;
+const usuarioPost=async (req,res)=>{
+    const body = req.body;
+    const usuario = new Usuario(body);
+
+    await usuario.save();
     //desustructurar
-    const {nombre,edad} = req.body;
+    //const {nombre,edad} = req.body;
     res.json({
         ok:true,
         msg:"Controlador - post ",
         //body,
-        nombre,
-        edad
+        usuario
     })
 }
 const usuarioPut= (req,res)=>{
