@@ -27,7 +27,7 @@
 <script>
     function handleCredentialResponse(response) {
         //Google Token
-        console.log('id_token',response.credential);
+        //console.log('id_token',response.credential);
        //const responsePayload = decodeJwtResponse(response.credential);
   
        //console.log("ID: " + responsePayload.sub);
@@ -36,15 +36,17 @@
        //console.log('Family Name: ' + responsePayload.family_name);
        //console.log("Image URL: " + responsePayload.picture);
        //console.log("Email: " + responsePayload.email);
-        const  body = {id_token:response.credential}
+        const  body = {id_token :response.credential}
+        //console.log(body);
        fetch('http://localhost:8080/api/auth/google',{
             method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify()
+            headers:{
+                'Content-Type':'application/json'},
+            body:JSON.stringify(body)
         })
-       .then( resp => resp.json(body))
+       .then( resp => resp.json())
        .then(resp=>{
-        console.log(resp);
+        //console.log(resp);
        })
        .catch(console.warn)
     }
