@@ -33,7 +33,8 @@ const UsuarioSchema = Schema({
 });
 //para que no retorne la contraseña ni la version (tiene que ser una funcion normal)
 UsuarioSchema.methods.toJSON = function (){
-    const{__v,password,...user} =this.toObject();
+    const{__v,password,_id,...user} =this.toObject();
+    user.uid = _id
     return user;
 }
 module.exports = model('User',UsuarioSchema);
