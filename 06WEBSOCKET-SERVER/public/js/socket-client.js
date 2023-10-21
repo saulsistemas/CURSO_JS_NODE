@@ -20,6 +20,10 @@ socket.on('disconnect',()=>{
     lbl1.style.display='none'
 })
 
+socket.on('enviar-mensaje',(payload)=>{
+    console.log(payload);
+})
+
 btnEnviar.addEventListener('click',()=>{
     const mensaje = txtMensaje.value;
 
