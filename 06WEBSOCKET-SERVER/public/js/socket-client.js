@@ -1,2 +1,2 @@
 
-console.log('es mi socket');
+const socket = io();
