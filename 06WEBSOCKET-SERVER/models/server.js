@@ -42,10 +42,11 @@ class Server{
                 console.log('socket io desconectado',socket.id);
             })
 
-            socket.on('enviar-mensaje',(payload)=>{
+            socket.on('enviar-mensaje',(payload,callback)=>{
                 //console.log(payload);
-
-                this.io.emit('enviar-mensaje',payload)
+                const id = 12445;
+                callback(id)
+                //this.io.emit('enviar-mensaje',payload)
             })
         });
         
