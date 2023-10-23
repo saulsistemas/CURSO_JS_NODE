@@ -28,13 +28,22 @@ app.get(patch,function(solicitud, respuesta){
 });
 
 app.post(patch,function(solicitud, respuesta){
+
+    console.log('Lo que se envia por las cajas text ',solicitud.body);
+
+
+    const params = solicitud.body;
+
     respuesta.status(200).json({
+        params,
         msg:'guardar'
     })
 });
 
 app.put(patch+'/:id',function(solicitud, respuesta){
-    solicitud
+    console.log('lo que se envia por la url como parametro ID ',solicitud.params);
+    console.log('lo que se envia por la url como parametro concatenado ?nombre=prueba ',solicitud.query);
+
     respuesta.status(200).json({
         msg:'editar'
     })
