@@ -61,12 +61,12 @@ app.post(patch,function(solicitud, respuesta){
 
     //console.log('Lo que se envia por las cajas text ',solicitud.body);
     // 8) Grabando registros
-    const params = solicitud.body;
-    var usuario = new Usuario()
+    const cuerpo = solicitud.body;
+    var usuario = Usuario()
 
-    usuario.nombre      = params.nombre;
-    usuario.apellido    = params.apellido;
-    usuario.edad        = params.edad;
+    usuario.nombre      = cuerpo.nombre;
+    usuario.apellido    = cuerpo.apellido;
+    usuario.edad        = cuerpo.edad;
 
     usuario.save();
 
@@ -76,19 +76,30 @@ app.post(patch,function(solicitud, respuesta){
     })
 });
 
-app.put(patch+'/:id',function(solicitud, respuesta){
-    console.log('lo que se envia por la url como parametro ID ',solicitud.params);
-    console.log('lo que se envia por la url como parametro concatenado ?nombre=prueba ',solicitud.query);
+app.put(patch+'/:id',async function(solicitud, respuesta){
+    console.log('lo que se envia por la url como parametro ID ',solicitud.params.id);
+    //console.log('lo que se envia por la url como parametro concatenado ?nombre=prueba ',solicitud.query);
+    
+    const id     = solicitud.params.id
+    const cuerpo = solicitud.body;
+
+    const usuario = await Usuario.findByIdAndUpdate(id,cuerpo)
 
     respuesta.status(200).json({
-        msg:'editar'
+        msg:'editar',
+        usuario
     })
 });
 
-app.delete(patch+'/:id',function(solicitud, respuesta){
+app.delete(patch+'/:id',async function(solicitud, respuesta){
+
+    const id     = solicitud.params.id
+    const usuario = await Usuario.findByIdAndDelete(id)
     respuesta.status(200).json({
-        msg:'eliminar'
+        msg:'eliminar',
+        usuario
     })
+    
 });
 
 
