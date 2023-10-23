@@ -22,7 +22,7 @@ async function conexion() {
 }
 conexion().then(()=>(console.log('la conexion fue exitosa'))).catch(err => console.log(err));
 
-// 07)CREABDI ESQUEMA
+// 07)CREANDO ESQUEMA
 
 const UsuarioSchema = mongoose.Schema({
     nombre:{
@@ -32,9 +32,12 @@ const UsuarioSchema = mongoose.Schema({
     apellido:{
         type:String,
         required:[true,'El correo es obligatorio'],
+    },
+    edad:{
+        type:Number,
     }
 })
-mongoose.model('Usuario',UsuarioSchema)
+const Usuario = mongoose.model('Usuario',UsuarioSchema)
 
 // 03) declarar nuestra ruta
 app.get('/',function(solicitud, respuesta){
@@ -52,14 +55,20 @@ app.get(patch,function(solicitud, respuesta){
 
 app.post(patch,function(solicitud, respuesta){
 
-    console.log('Lo que se envia por las cajas text ',solicitud.body);
-
-
+    //console.log('Lo que se envia por las cajas text ',solicitud.body);
+    // 8) Grabando registros
     const params = solicitud.body;
+    var usuario = new Usuario()
+
+    usuario.nombre      = params.nombre;
+    usuario.apellido    = params.apellido;
+    usuario.edad        = params.edad;
+
+    usuario.save();
 
     respuesta.status(200).json({
-        params,
-        msg:'guardar'
+        msg:'guardar',
+        usuario
     })
 });
 
