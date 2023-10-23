@@ -7,6 +7,7 @@ const socketController = (socket) => {
     console.log('socket io conectado', socket.id);   
     
     socket.emit('ultimo-ticket',ticketControl.ultimo)
+    socket.emit('estado-actual',ticketControl.ultimo4)
 
     socket.on('siguiente-ticket',(payload,callback)=>{
         //console.log(payload);
@@ -27,6 +28,7 @@ const socketController = (socket) => {
             })
         }
         const ticket = ticketControl.atenderTicket(escritorio);
+        socket.broadcast.emit('estado-actual',ticketControl.ultimo4)
         if (!ticket) {
             callback({
                 ok:false,
