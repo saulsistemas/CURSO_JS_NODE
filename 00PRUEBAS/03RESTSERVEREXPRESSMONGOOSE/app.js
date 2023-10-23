@@ -47,9 +47,13 @@ app.get('/',function(solicitud, respuesta){
 });
 
 
-app.get(patch,function(solicitud, respuesta){
+app.get(patch,async function(solicitud, respuesta){
+    //const query = solicitud.query
+    const usuario =  await Usuario.find();
+    //console.log(usuario);
     respuesta.status(200).json({
-        msg:'Mostrar'
+        msg:'Mostrar',
+        usuario
     })
 });
 
