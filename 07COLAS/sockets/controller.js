@@ -6,15 +6,15 @@ const ticketControl = new TicketControl();
 const socketController = (socket) => { 
     console.log('socket io conectado', socket.id);   
     
-    socket.on('disconnect', ()=>{
-        console.log('socket io desconectado',socket.id);
-    })
+    socket.emit('ultimo-ticket',ticketControl.ultimo)
 
-    socket.on('enviar-mensaje',(payload,callback)=>{
+    socket.on('siguiente-ticket',(payload,callback)=>{
         //console.log(payload);
-        const id = 12445;
-        callback(id)
-        socket.broadcast.emit('enviar-mensaje',payload)
+        
+        const siguiente = ticketControl.siguiente();
+        callback(siguiente);
+
+        //TODO: Notofocar que hay un ticket pendiente
     })
 }
 
