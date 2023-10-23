@@ -22,8 +22,19 @@ async function conexion() {
 }
 conexion().then(()=>(console.log('la conexion fue exitosa'))).catch(err => console.log(err));
 
-// 07)
+// 07)CREABDI ESQUEMA
 
+const UsuarioSchema = mongoose.Schema({
+    nombre:{
+        type:String,
+        required:[true,'El nombre es obligatorio']
+    },
+    apellido:{
+        type:String,
+        required:[true,'El correo es obligatorio'],
+    }
+})
+mongoose.model('Usuario',UsuarioSchema)
 
 // 03) declarar nuestra ruta
 app.get('/',function(solicitud, respuesta){
